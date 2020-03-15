@@ -32,6 +32,7 @@ const generateCategoriesCollection = () => {
          categoriesResponse = categoriesResponse.filter(category => category.strCategory !== 'Miscellaneous');
          categoriesResponse.forEach(categoryResponse => {
              categories.push({
+                 id: categoryResponse.idCategory,
                  name: categoryResponse.strCategory,
                  image: categoryResponse.strCategoryThumb,
                  description: categoryResponse.strCategoryDescription,
@@ -45,6 +46,7 @@ const generateCategoriesCollection = () => {
                  .then(res => {
                      res.data.meals.forEach(meal => category.mealIds.push(meal.idMeal))
                      const myCategory = new Category({
+                         _id: category.id,
                          name: category.name,
                          image: category.image,
                          description: category.description,
@@ -59,6 +61,8 @@ const generateCategoriesCollection = () => {
      })
      .catch(err => console.log(err));
 }
+
+//generateCategoriesCollection();
 
 // below function calls API for areas that gives out cuisines and mealIds was added for each cuisine
 const generateCuisinesCollection = () => {

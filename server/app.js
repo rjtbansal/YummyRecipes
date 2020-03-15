@@ -3,12 +3,14 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 
 const recipesRoutes = require('./routes/recipes');
+const categoryRoutes = require('./routes/category');
 const app = express();
 
 app.use(express.json());
 app.use(cors());
 
 app.use('/recipes',recipesRoutes);
+app.use('/category', categoryRoutes);
 
 //connecting to our cloud MongoDb
 const mongoCloudUrl = 'mongodb+srv://admin:adminadmin@yummyrecipescluster-0g9s7.mongodb.net/YummyRecipes?retryWrites=true&w=majority';
