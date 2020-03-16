@@ -27,4 +27,21 @@ const Recipe = require('../models/recipe');
         }
   });
  });
+
+ /**
+ Endpoint: /category/
+ Outcome: List of all categories
+ */
+ router.get('/', (req, res) => {
+    Category.find({}, (err, categories) => {
+        if(!err){
+            if(categories){
+                res.json(categories);
+            }
+        }
+        else{
+            console.error(err);
+        }
+    })
+ })
  module.exports = router;
