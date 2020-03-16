@@ -1,0 +1,29 @@
+.nav {
+
+    width: 70%;
+
+    &__list {
+        display: flex;
+        list-style: none;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+
+    &__link {
+        text-decoration: none;
+        font-size: 1.3rem;
+        color: rgb(87, 9, 139);
+        padding-bottom: 0.5rem;
+        cursor: pointer;
+
+        &:hover {
+            border-bottom: 2px solid rgb(87, 9, 139);
+        }
+
+        &--active {
+            border-bottom: 2px solid rgb(87, 9, 139);
+        }
+    }
+
+   
+}

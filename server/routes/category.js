@@ -18,6 +18,7 @@ const Recipe = require('../models/recipe');
                         recipesReceived.push(recipe);
                     });
                 });
+                //revisit this in future and try doing it using promises
                 setTimeout(() => res.json(recipesReceived), 200);
             }
         }
