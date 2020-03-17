@@ -10,7 +10,7 @@ Outcome: Get top 10 random recipes: only provide images
 router.get('/random', (req, res) => {
     Recipe.aggregate([
         { $project: {name: 1, cuisine: 1, image: 1}},
-        { $sample: {size: 10}}
+        { $sample: {size: 20}}
     ], (err, recipesData) => {
         if(!err) {
             if(recipesData) {

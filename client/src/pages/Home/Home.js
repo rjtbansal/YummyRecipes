@@ -2,19 +2,23 @@ import React, { Component } from 'react';
 import Carousel from '../../components/Carousel/Carousel';
 import Cuisine from '../../components/Cuisine/Cuisine';
 import Category from '../../components/Category/Category';
-
+import Recipe from '../../components/Recipe/Recipe';
+import './Home.scss';
 import axios from 'axios';
 
 class Home extends Component {
 
     state = {
+        recipesData: [],
         cuisinesData: [],
         categoriesData: []
+       
     }
     
     getCuisines = () => {
         axios.get('http://localhost:3000/cuisine')
             .then(cuisines => {
+                console.log(cuisines.data);
                 this.setState({
                     cuisinesData: cuisines.data
                 })
@@ -25,7 +29,7 @@ class Home extends Component {
     getCategories = () => {
         axios.get('http://localhost:3000/category')
             .then(categories => {
-                //console.log(categories.data);
+                console.log(categories.data);
                 this.setState({
                     categoriesData: categories.data
                 })
@@ -33,36 +37,36 @@ class Home extends Component {
             .catch(err => console.error(err));
     }
 
+    getRandomRecipes = () => {
+        axios.get('http://localhost:3000/recipes/random')
+            .then(recipes => {
+              console.log(recipes.data);
+                this.setState({
+                    recipesData: recipes.data
+                })
+            })
+            .catch(err => console.error(err));
+    }
     
 
     componentDidMount(){
+        this.getRandomRecipes();
         this.getCuisines();
         this.getCategories();
     }
 
     render() {
-    return <div>
+    if(!this.state.recipesData.length && !this.state.categoriesData.length && !this.state.cuisinesData.length){
+        return (
+            <h2> Loading recipes data...Please wait</h2>
+        );
+    }
+    return <div className="home">
         <h3>Today's Recipes</h3>
-        {/* now call api and render data same as below */}
         <Carousel>
-            <div>
-                 <h3>Recipe1</h3>
-            </div>
-            <div>
-                 <h3>Recipe2</h3>
-            </div>
-            <div>
-                 <h3>Recipe3</h3>
-            </div>
-            <div>
-                 <h3>Recipe4</h3>
-            </div>
-            <div>
-                 <h3>Recipe5</h3>
-            </div>
-            <div>
-                 <h3>Recipe6</h3>
-            </div>
+            {
+                this.state.recipesData.map( recipeData => <Recipe key= {recipeData._id} recipeData = { recipeData } /> )
+            }
         </Carousel>
 
         <h3>Explore Our Cuisines</h3>
@@ -78,6 +82,7 @@ class Home extends Component {
                 this.state.categoriesData.map( categoryData => <Category key= {categoryData._id} categoryData = { categoryData } /> )
             }
         </Carousel>
+
     </div>
     }
 }
