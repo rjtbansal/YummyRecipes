@@ -26,4 +26,21 @@ const Recipe = require('../models/recipe');
         }
   });
  });
+
+ /**
+ Endpoint: /cuisine/
+ Outcome: List of all cuisines
+ */
+router.get('/', (req, res) => {
+    Cuisine.find({}, (err, cuisines) => {
+        if(!err){
+            if(cuisines){
+                res.json(cuisines);
+            }
+        }
+        else{
+            console.error(err);
+        }
+    })
+ });
  module.exports = router;
