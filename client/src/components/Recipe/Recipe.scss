@@ -1,6 +1,12 @@
 .recipe {
 
     width: 25%;
+    margin-bottom: 2rem;
+
+    &__link {
+        text-decoration: none;
+        color: black;
+    }
 
     &__name {
         margin: 0;

@@ -6,6 +6,7 @@ import Categories from './pages/Categories/Categories';
 import Cuisines from './pages/Cuisines/Cuisines';
 import UploadRecipes from './pages/UploadRecipes/UploadRecipes';
 import CategoryDetails from './pages/CategoryDetails/CategoryDetails';
+import RecipeDetails from './pages/RecipeDetails/RecipeDetails';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
             <Switch>             
               <Route path='/home' component = { Home } />
               <Route path='/categories/:id' component = { CategoryDetails } />
+              <Route path='/recipes/:id' component = { RecipeDetails } />
               <Route path='/categories' component = { Categories } />
               <Route path='/cuisines' component = { Cuisines } />
               <Route path='/upload' component = { UploadRecipes } />
