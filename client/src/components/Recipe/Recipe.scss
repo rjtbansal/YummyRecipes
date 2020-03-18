@@ -1,7 +1,16 @@
 .recipe {
 
+    &__name {
+        margin: 0;
+    }
 
     &__image {
         height: 12.5rem;
+    }
+
+    &__subdiv {
+        display: flex;
+        justify-content: space-between;
+        width: 12.5rem;
     }
 }

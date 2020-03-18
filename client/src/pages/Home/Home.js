@@ -11,14 +11,14 @@ class Home extends Component {
     state = {
         recipesData: [],
         cuisinesData: [],
-        categoriesData: []
+        categoriesData: [],
+        veggieAndVeganData: []
        
     }
     
     getCuisines = () => {
         axios.get('http://localhost:3000/cuisine')
             .then(cuisines => {
-                console.log(cuisines.data);
                 this.setState({
                     cuisinesData: cuisines.data
                 })
@@ -29,7 +29,6 @@ class Home extends Component {
     getCategories = () => {
         axios.get('http://localhost:3000/category')
             .then(categories => {
-                console.log(categories.data);
                 this.setState({
                     categoriesData: categories.data
                 })
@@ -40,19 +39,29 @@ class Home extends Component {
     getRandomRecipes = () => {
         axios.get('http://localhost:3000/recipes/random')
             .then(recipes => {
-              console.log(recipes.data);
                 this.setState({
                     recipesData: recipes.data
                 })
             })
             .catch(err => console.error(err));
     }
-    
+
+    getVeganRecipes = () => axios.get('http://localhost:3000/category/11');
+           
+    getVegetarianRecipes = () => axios.get('http://localhost:3000/category/12');
 
     componentDidMount(){
         this.getRandomRecipes();
         this.getCuisines();
         this.getCategories();
+        
+        axios.all([this.getVegetarianRecipes() , this.getVeganRecipes()])
+              .then(res => {
+                  this.setState({
+                    veggieAndVeganData: [...res[0].data, ...res[1].data]
+                  });
+              })
+              .catch(err => console.log(err));
     }
 
     render() {
@@ -62,21 +71,21 @@ class Home extends Component {
         );
     }
     return <div className="home">
-        <h3>Today's Recipes</h3>
+        <h2>Today's Recipes</h2>
         <Carousel>
             {
                 this.state.recipesData.map( recipeData => <Recipe key= {recipeData._id} recipeData = { recipeData } /> )
             }
         </Carousel>
 
-        <h3>Explore Our Cuisines</h3>
+        <h2>Our Vegetarian & Vegan Delights</h2>
         <Carousel>
             {
-                this.state.cuisinesData.map( cuisineData => <Cuisine key= {cuisineData._id} cuisineData = { cuisineData } /> )
+                this.state.veggieAndVeganData.map( recipeData => <Recipe key= {recipeData._id} recipeData = { recipeData } /> )
             }
         </Carousel>
 
-        <h3>Explore Our Categories</h3>
+        <h2>Explore Our Categories</h2>
         <Carousel>
         {
                 this.state.categoriesData.map( categoryData => <Category key= {categoryData._id} categoryData = { categoryData } /> )

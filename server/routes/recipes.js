@@ -2,15 +2,14 @@ const express = require('express');
 const router = express.Router();
 const Recipe = require('../models/recipe');
 
-
 /*
 Endpoint: /recipes/random
-Outcome: Get top 10 random recipes: only provide images
+Outcome: Get top 20 random recipes: only provide images
 */ 
 router.get('/random', (req, res) => {
     Recipe.aggregate([
-        { $project: {name: 1, cuisine: 1, image: 1}},
-        { $sample: {size: 20}}
+        { $project: {name: 1, cuisine: 1, category: 1, image: 1}},
+        { $sample: {size: 15}}
     ], (err, recipesData) => {
         if(!err) {
             if(recipesData) {
