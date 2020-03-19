@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Carousel from '../../components/Carousel/Carousel';
-import Cuisine from '../../components/Cuisine/Cuisine';
 import Category from '../../components/Category/Category';
 import Recipe from '../../components/Recipe/Recipe';
 import './Home.scss';

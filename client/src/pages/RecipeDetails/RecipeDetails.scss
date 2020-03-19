@@ -1,0 +1,19 @@
+.recipe-details {
+    
+    margin-left: 2rem;
+    &__image {
+        height: 20rem;
+    }
+
+    &__back-button{
+        cursor: pointer;
+    }
+
+    &__subdiv {
+        display: flex;
+        justify-content: space-between;
+        width: 20%;
+    }
+
+    
+}

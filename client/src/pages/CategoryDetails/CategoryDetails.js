@@ -1,6 +1,5 @@
 import React from 'react';
 import './CategoryDetails.scss';
-import {Link} from 'react-router-dom';
 import axios from 'axios';
 import Recipe from '../../components/Recipe/Recipe';
 import backArrow from '../../assets/keyboard_arrow_left.svg';
@@ -25,12 +24,13 @@ export default class CategoryDetails extends React.Component {
         this.getRecipesByCategory(this.props.match.params.id);
     }
 
+    goBack = () => this.props.history.goBack();
+
+
     render() {
         return(
-            <div>
-                <Link to="/categories">
-                    <img src={backArrow} alt="back-arrow-img" />
-                </Link>
+            <div> 
+                <img onClick={ this.goBack } src={backArrow} alt="back-arrow-img" />
                 <div className="category-details">
                 {
                     this.state.categoryRecipesData.map(categoryRecipeData => <Recipe key= {categoryRecipeData._id} recipeData = {categoryRecipeData} />)

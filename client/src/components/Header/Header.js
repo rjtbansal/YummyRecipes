@@ -1,11 +1,12 @@
 import React from 'react';
 import './Header.scss';
 import Nav from '../Nav/Nav';
+import {Link} from 'react-router-dom';
 
 const Header = () => {
 
     return <section className="header">
-        <h1 className ="header__logo">Yummy Recipes</h1>
+        <Link to="/" className ="header__logo">Yummy Recipes</Link>
         <Nav />
     </section>
 

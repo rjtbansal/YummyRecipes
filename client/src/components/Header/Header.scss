@@ -5,9 +5,12 @@
     justify-content: space-between;
     background-color: #FBEA1F;
     border-radius: 0.5rem;
-    
     &__logo {
         padding-left: 1rem;
+        text-decoration: none;
+        color: rgb(42, 3, 104);
+        font-size: x-large;
+        font-weight: bold;
     }
 
 }
