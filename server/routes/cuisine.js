@@ -15,7 +15,7 @@ const Recipe = require('../models/recipe');
             if(cuisine) {               
                 cuisine.mealIds.forEach(mealId => {
                     Recipe.findById(mealId, 'name category cuisine image' , (err, recipe) => {
-                        recipesReceived.push(recipe);
+                        recipe && recipesReceived.push(recipe);
                     });
                 });
                 setTimeout(() => res.json(recipesReceived), 200);
