@@ -26,7 +26,6 @@ export default class CuisineDetails extends React.Component {
     goBack = () => this.props.history.goBack();
 
     render() {
-        console.log(this.state.cuisineRecipesData)
         return(
            
             <div> 

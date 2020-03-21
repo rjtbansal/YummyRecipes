@@ -8,10 +8,10 @@ export default class RecipeDetails extends React.Component {
     state = {
         recipeDetailsData: {}
     }
+
     getRecipeDetails = id => {
         axios.get(`http://localhost:3000/recipes/${id}`)
              .then(recipeDetailsRes => {
-                 //console.log(recipeDetailsRes.data.ingredients);
                  this.setState({
                     recipeDetailsData: recipeDetailsRes.data
                  });
@@ -44,7 +44,7 @@ export default class RecipeDetails extends React.Component {
                     <h3> Ingredients </h3>
                         { this.state.recipeDetailsData.ingredients.map(ingredient => 
                                 <p> 
-                                    { ingredient.name } - { ingredient.portionSize }
+                                    { ingredient.name } - { ingredient.portionSize || null }
                                 </p>
                         ) }
                 </div>

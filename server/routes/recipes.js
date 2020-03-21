@@ -43,6 +43,29 @@ router.get('/:id', (req, res) => {
     })
 });
 
+router.post('/', (req, res) => {
+    if(req.body.name && req.body.ingredients && req.body.instructions){
+        const newRecipeData = new Recipe({
+            _id: req.body._id,
+            name: req.body.name,
+            ingredients: req.body.ingredients,
+            instructions: req.body.instructions,
+            cuisine: req.body.cuisine || '',
+            image: req.body.image || '',
+            addedBy: req.body.addedBy || ''
+        });
+        newRecipeData.save()
+                     .then(result => {
+                         res.status(201).send('Recipe added successfully!');
+                     })
+                     .catch(err => console.log(err));
+    }
+    else {
+        res.status(400).send('Data is malformed. Required fields are missing');
+    }
+    
+});
+
 
 module.exports = router;
 
