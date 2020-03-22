@@ -28,7 +28,7 @@ export default class CuisineDetails extends React.Component {
     render() {
         return(
            
-            <div> 
+            <div className="cuisine-details-div"> 
                 <img onClick={ this.goBack } src={backArrow} alt="back-arrow-img" />
                 <div className="cuisine-details">
                 {

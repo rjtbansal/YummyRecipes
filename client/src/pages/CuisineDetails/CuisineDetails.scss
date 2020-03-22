@@ -3,4 +3,13 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
     margin-left: 2rem;
+    // margin-top: 4rem;
+
+    &-div {
+        margin-top: 5rem;
+    }
+}
+
+.cuisine-details .recipe {
+    width: 25%;
 }

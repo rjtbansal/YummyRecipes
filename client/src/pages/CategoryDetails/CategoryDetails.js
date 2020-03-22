@@ -29,7 +29,7 @@ export default class CategoryDetails extends React.Component {
 
     render() {
         return(
-            <div> 
+            <div className="category-details-div"> 
                 <img onClick={ this.goBack } src={backArrow} alt="back-arrow-img" />
                 <div className="category-details">
                 {

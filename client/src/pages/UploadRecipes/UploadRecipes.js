@@ -4,14 +4,34 @@ import { v4 as uuidv4 } from 'uuid';
 
 export default class UploadRecipes extends React.Component {
     
-    state = {
-        uploadRecipesFormData: {}
-    };
-
+    constructor(props) {
+        super(props);
+        this.state = {
+            uploadRecipesFormData: {},
+            selectedFile: null
+        };
+    }
+   
     uploadRecipe = () => {
+        console.log(this.state.selectedFile);
+        const data = new FormData();
+        data.append('file', this.state.selectedFile);
+        
+        this.setState({
+            uploadRecipesFormData : {
+                ...this.state.uploadRecipesFormData,
+                data
+            }
+        })
         axios.post(`http://localhost:3000/recipes`, this.state.uploadRecipesFormData)
              .then(res => alert(res.data))
              .catch(err => console.error(err));
+    }
+
+    onChangeImageHandler = e => {
+        this.setState({
+            selectedFile: e.target.files[0]
+        });
     }
 
     handleChange = e => {
@@ -20,8 +40,7 @@ export default class UploadRecipes extends React.Component {
     }
 
     handleInputChange = (key, value) => {
-        console.log([key], value);
-        
+
         this.setState({
             uploadRecipesFormData: {
                 _id: uuidv4(),
@@ -30,7 +49,6 @@ export default class UploadRecipes extends React.Component {
                 [key]: value
             }
         });
-        console.log(this.state.uploadRecipesFormData)
     }
 
     submitRecipe = e => {
@@ -64,7 +82,7 @@ export default class UploadRecipes extends React.Component {
                 </div>
                 <div>
                     <label htmlFor="image">Choose your recipe image:</label>
-                    <input type="file" name="img" accept="image/*" />
+                    <input type="file" name="file" onChange= { e => {this.onChangeImageHandler(e)} } />
                 </div>
                 <button>Reset</button>
                 <button>Upload</button>
