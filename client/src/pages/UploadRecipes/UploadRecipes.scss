@@ -1,0 +1,74 @@
+.upload-recipes {
+    margin-top: 5rem;
+    margin-left: 2rem;
+
+    &__label {
+        color: brown;
+        font-weight: bold;
+        font-family: sans-serif;
+        margin-bottom: 0.5rem;
+    }
+
+    &__textarea {
+        outline: none;
+        resize: none;
+        border-radius: 5px;
+        padding: 1rem;
+        width: 20rem;
+        margin-bottom: 1rem;
+        margin-top: 0.5rem;
+        border: 1px solid darkgray;
+    }
+
+    &__subdiv {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
+    }
+
+    &__input {
+        width: 22rem;
+        border-radius: 5px;
+        border: 1px solid darkgray;
+        height: 2rem;
+    }
+
+    &__inputsdiv, &__textareadiv {
+        display: flex;
+        justify-content: space-between;
+        width: 50%;
+    }
+
+    &__uploaddiv {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 2rem;
+    }
+
+    &--upload{
+        margin-right: 1rem;
+        background-color: #0095FF;
+        color: white;
+
+        &:hover {
+            background-color: green;
+        }
+    }
+
+    &--reset {
+        background-color: #5A6268;
+        color: white;
+         &:hover {
+             background-color: green;
+         }
+    }
+
+    &__button {
+        width: 10rem;
+        border-radius: 5px;
+        height: 2rem;
+        border-style: none;
+        cursor: pointer;
+    }
+
+}

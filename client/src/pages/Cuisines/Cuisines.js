@@ -25,15 +25,10 @@ export default class Cuisines extends React.Component {
 
     render() {
         return(
-            <div>
-                <h2>
-                    Explore Our Cuisines
-                </h2>
-                <div className="cuisines">
-                    {
-                        this.state.cuisinesData.map(cuisineData => <Cuisine key={cuisineData._id} cuisineData={cuisineData} />)
-                    }
-                </div>
+            <div className="cuisines">
+                {
+                    this.state.cuisinesData.map(cuisineData => <Cuisine key={cuisineData._id} cuisineData={cuisineData} />)
+                }
             </div>
         )
     }
