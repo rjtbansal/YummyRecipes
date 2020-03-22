@@ -44,7 +44,7 @@ export default class RecipeDetails extends React.Component {
                     <h3> Ingredients </h3>
                         { this.state.recipeDetailsData.ingredients.map(ingredient => 
                                 <p> 
-                                    { ingredient.name } - { ingredient.portionSize || null }
+                                    { ingredient.name } - { ingredient.portionSize}
                                 </p>
                         ) }
                 </div>

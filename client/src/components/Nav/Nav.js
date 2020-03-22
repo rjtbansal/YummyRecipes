@@ -15,6 +15,9 @@ const Nav = () => {
                 <NavLink activeClassName="nav__link--active" className="nav__link"  to="/cuisines">Cuisines</NavLink>
             </li>
             <li className = "nav__item">
+                <NavLink activeClassName="nav__link--active" className="nav__link"  to="/uploaded-recipes">Uploaded Recipes</NavLink>
+            </li>
+            <li className = "nav__item">
                 <NavLink activeClassName="nav__link--active" className="nav__link"  to="/upload">Upload Recipes</NavLink>
             </li>
         </ul>

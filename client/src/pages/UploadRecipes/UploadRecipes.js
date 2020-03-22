@@ -55,8 +55,8 @@ export default class UploadRecipes extends React.Component {
                     <input name="cuisine" onInput = { e => { this.handleChange(e)}}/>
                 </div>
                 <div>
-                    <label htmlFor="ingredients" required>Ingredients & Portion Sizes *</label> <br />
-                    <textarea name="ingredients" rows='10' columns='30' placeholder="Ingredients separated by commas, portions seperated by :" onInput = { e => { this.handleChange(e)}}/>
+                    <label htmlFor="ingredients" required>Ingredients*</label> <br />
+                    <textarea name="ingredients" rows='10' columns='30' placeholder="Ingredients separated by commas" onInput = { e => { this.handleChange(e)}}/>
                 </div>
                 <div>
                     <label htmlFor="instructions">Instructions *</label> <br />

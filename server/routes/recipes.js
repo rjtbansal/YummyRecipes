@@ -26,6 +26,23 @@ router.get('/random', (req, res) => {
 });
 
 /*
+Endpoint: /recipes/byusers
+Outcome: Get all uploaded recipes
+*/ 
+router.get('/byusers', (_req, res) =>{
+    //specifically looking for recipes added by guest
+    Recipe.find({ addedBy: 'guest'}, (err, recipes) => {
+        if(!err) {
+            
+            recipes.length ? res.json(recipes) : res.status(404).send('Recipesss not found');
+        }
+        else{
+            console.error(err);
+        }
+    })
+});
+
+/*
 Endpoint: /recipes/:id
 Outcome: Give recipe details based on id
 */ 
@@ -43,6 +60,12 @@ router.get('/:id', (req, res) => {
     })
 });
 
+
+
+/*
+Endpoint: /recipes
+Outcome: Add recipe 
+*/ 
 router.post('/', (req, res) => {
     if(req.body.name && req.body.ingredients && req.body.instructions){
         const newRecipeData = new Recipe({
@@ -65,6 +88,8 @@ router.post('/', (req, res) => {
     }
     
 });
+
+
 
 
 module.exports = router;

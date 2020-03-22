@@ -8,6 +8,7 @@ import UploadRecipes from './pages/UploadRecipes/UploadRecipes';
 import CategoryDetails from './pages/CategoryDetails/CategoryDetails';
 import RecipeDetails from './pages/RecipeDetails/RecipeDetails';
 import CuisineDetails from './pages/CuisineDetails/CuisineDetails';
+import UserUploadedRecipes from './pages/UserUploadedRecipes/UserUploadedRecipes';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
               <Route path='/categories' component = { Categories } />
               <Route path='/cuisines/:id' component = { CuisineDetails } />
               <Route path='/cuisines' component = { Cuisines } />
+              <Route path='/uploaded-recipes' component = { UserUploadedRecipes } />
               <Route path='/upload' component = { UploadRecipes } />
               <Route exact path='/' component = { Home } />
             </Switch>

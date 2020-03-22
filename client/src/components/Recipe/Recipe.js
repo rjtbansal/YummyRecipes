@@ -10,7 +10,7 @@ const Recipe = ({recipeData}) => {
                 <h4> { recipeData.cuisine }   </h4>
                 <h4> { recipeData.category }  </h4>
             </div>
-            <img className="recipe__image" src = { recipeData.image } alt="" />
+            <img className="recipe__image" src = { recipeData.image } alt= {`${recipeData.name}-image`} />
         </Link>
     </div>
 }
