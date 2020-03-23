@@ -41,29 +41,29 @@ export default class RecipeDetails extends React.Component {
         return (
             <div className="recipe-details">
                 <img className="recipe-details__back-button" onClick={this.goBack} src={backButton} />
-                <h3> { this.state.recipeDetailsData.name } </h3>
-                <div className="recipe-details__subdiv">
-                    <h4> { this.state.recipeDetailsData.cuisine } </h4>
-                    <h4> { this.state.recipeDetailsData.category } </h4>
+                <div className="recipe-details__title-image">
+                    <h3 className="recipe-details__name"> { this.state.recipeDetailsData.name } </h3>
+                    <div className="recipe-details__subdiv">
+                        <h4> { this.state.recipeDetailsData.cuisine } </h4>
+                        <h4> { this.state.recipeDetailsData.category } </h4>
+                    </div>
+                    <img className="recipe-details__image" src={ this.state.recipeDetailsData.image } />
                 </div>
-                <img className="recipe-details__image" src={ this.state.recipeDetailsData.image } />
-                <div className="recipe-details__ingredients-subdiv">
-                    <h3> Ingredients </h3>
-                        <ul>
+                    <h3 className="recipe-details__title"> Ingredients </h3>
+                        <ul className= "recipe-details__ingredients">
                         { this.state.recipeDetailsData.ingredients.map(ingredient => 
-                                <li> 
+                                <li  className="recipe-details__spacing"> 
                                     { ingredient.name } - { ingredient.portionSize}
                                 </li>
                         ) }
                         </ul>
-                </div>
-                 <h3>Instructions</h3>
-                <ul className="recipe-details__instructions">
-                    { 
-                        this.state.recipeInstructionsArr.filter(recipeInstruction => recipeInstruction.length !== 0 && recipeInstruction.length !==1)
-                                                        .map(recipeInstruction => <li> {recipeInstruction} </li>)
-                    }
-                </ul>
+                    <h3 className="recipe-details__title">Instructions</h3>
+                    <ul className="recipe-details__instructions">
+                        { 
+                            this.state.recipeInstructionsArr.filter(recipeInstruction => recipeInstruction.length !== 0 && recipeInstruction.length !==1)
+                                                            .map(recipeInstruction => <li className="recipe-details__spacing"> {recipeInstruction} </li>)
+                        }
+                    </ul>
             </div>
         );
     }
