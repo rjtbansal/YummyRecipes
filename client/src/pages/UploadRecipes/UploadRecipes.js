@@ -2,6 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 import './UploadRecipes.scss';
+import { Redirect } from 'react-router-dom';
+
 
 export default class UploadRecipes extends React.Component {
     
@@ -9,7 +11,8 @@ export default class UploadRecipes extends React.Component {
         super(props);
         this.state = {
             uploadRecipesFormData: {},
-            selectedFile: null
+            selectedFile: null,
+            redirect : null
         };
     }
    
@@ -25,7 +28,12 @@ export default class UploadRecipes extends React.Component {
             }
         })
         axios.post(`http://localhost:3000/recipes`, this.state.uploadRecipesFormData)
-             .then(res => alert(res.data))
+             .then(res =>  {
+                 alert(res.data);
+                 this.setState({
+                     redirect: "/uploaded-recipes"
+                 });
+             })
              .catch(err => console.error(err));
     }
 
@@ -58,6 +66,10 @@ export default class UploadRecipes extends React.Component {
     }
 
     render()   {
+
+        if(this.state.redirect) {
+            return <Redirect to= {this.state.redirect} />
+        }
         return <div className="upload-recipes">
             <h2>
                 Share Your Culinary Art
