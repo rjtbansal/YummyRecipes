@@ -34,7 +34,7 @@ router.get('/byusers', (_req, res) =>{
     Recipe.find({ addedBy: 'guest'}, (err, recipes) => {
         if(!err) {
             
-            recipes.length ? res.json(recipes) : res.status(404).send('Recipesss not found');
+            recipes.length ? res.json(recipes) : res.status(404).send('Recipes not found');
         }
         else{
             console.error(err);
@@ -71,12 +71,13 @@ router.post('/', (req, res) => {
         const newRecipeData = new Recipe({
             _id: req.body._id,
             name: req.body.name,
-            ingredients: req.body.ingredients,
+            ingredients: req.body.ingredients.split(','),
             instructions: req.body.instructions,
             cuisine: req.body.cuisine || '',
             image: req.body.image || '',
             addedBy: req.body.addedBy || ''
         });
+       
         newRecipeData.save()
                      .then(result => {
                          res.status(201).send('Recipe added successfully!');

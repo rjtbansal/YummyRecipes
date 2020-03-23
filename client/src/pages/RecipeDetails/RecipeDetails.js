@@ -16,6 +16,7 @@ export default class RecipeDetails extends React.Component {
                  this.setState({
                     recipeDetailsData: recipeDetailsRes.data
                  });
+                 console.log(this.state.recipeDetailsData.addedBy);
                  return this.state.recipeDetailsData;
              })
              .then(res => {
@@ -52,8 +53,15 @@ export default class RecipeDetails extends React.Component {
                     <h3 className="recipe-details__title"> Ingredients </h3>
                         <ul className= "recipe-details__ingredients">
                         { this.state.recipeDetailsData.ingredients.map(ingredient => 
+
+                             this.state.recipeDetailsData.addedBy !== 'guest' 
+                             ?
                                 <li  className="recipe-details__spacing"> 
                                     { ingredient.name } - { ingredient.portionSize}
+                                </li>
+                             : 
+                                <li className="recipe-details__spacing">
+                                    { ingredient }
                                 </li>
                         ) }
                         </ul>
