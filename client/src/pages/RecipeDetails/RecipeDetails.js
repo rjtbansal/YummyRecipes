@@ -48,7 +48,15 @@ export default class RecipeDetails extends React.Component {
                         <h4> { this.state.recipeDetailsData.cuisine } </h4>
                         <h4> { this.state.recipeDetailsData.category ? this.state.recipeDetailsData.category : this.state.recipeDetailsData.addedBy } </h4>
                     </div>
-                    <img className="recipe-details__image" src={ this.state.recipeDetailsData.image } />
+                    {
+                        this.state.recipeDetailsData.image 
+                        ?
+                        <img className="recipe-details__image" src={ this.state.recipeDetailsData.image } alt= {`${this.state.recipeDetailsData.name}image`} />
+                        :
+                        <div className="recipe-details__image-placeholder">
+                            <h3>Image Unavailable</h3>
+                        </div>
+                    }
                 </div>
                     <h3 className="recipe-details__title"> Ingredients </h3>
                         <ul className= "recipe-details__ingredients">

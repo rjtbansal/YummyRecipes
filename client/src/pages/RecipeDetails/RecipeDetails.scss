@@ -18,6 +18,15 @@
         height: 20rem;
     }
 
+    &__image-placeholder{
+        height: 20rem;
+        width: 20rem;
+        background-color: lightgray;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
     &__back-button{
         cursor: pointer;
     }
