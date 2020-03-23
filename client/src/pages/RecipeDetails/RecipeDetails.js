@@ -46,7 +46,7 @@ export default class RecipeDetails extends React.Component {
                     <h3 className="recipe-details__name"> { this.state.recipeDetailsData.name } </h3>
                     <div className="recipe-details__subdiv">
                         <h4> { this.state.recipeDetailsData.cuisine } </h4>
-                        <h4> { this.state.recipeDetailsData.category } </h4>
+                        <h4> { this.state.recipeDetailsData.category ? this.state.recipeDetailsData.category : this.state.recipeDetailsData.addedBy } </h4>
                     </div>
                     <img className="recipe-details__image" src={ this.state.recipeDetailsData.image } />
                 </div>

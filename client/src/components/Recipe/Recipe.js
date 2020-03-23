@@ -9,7 +9,7 @@ const Recipe = ({recipeData}) => {
             <h3 className="recipe__name"> <EllipsisText text={ recipeData.name } length={"25"}/> </h3>
             <div className = "recipe__subdiv">
                 <h4> { recipeData.cuisine }   </h4>
-                <h4> { recipeData.category }  </h4>
+                <h4> { recipeData.category ? recipeData.category : recipeData.addedBy}  </h4>
             </div>
             <img className="recipe__image" src = { recipeData.image } alt= {`${recipeData.name}-image`} />
         </Link>
