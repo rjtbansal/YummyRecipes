@@ -59,7 +59,10 @@ export default class RecipeDetails extends React.Component {
                 </div>
                  <h3>Instructions</h3>
                 <ul className="recipe-details__instructions">
-                    { this.state.recipeInstructionsArr.map(recipeInstruction => <li> {recipeInstruction} </li>)}
+                    { 
+                        this.state.recipeInstructionsArr.filter(recipeInstruction => recipeInstruction.length !== 0 && recipeInstruction.length !==1)
+                                                        .map(recipeInstruction => <li> {recipeInstruction} </li>)
+                    }
                 </ul>
             </div>
         );
