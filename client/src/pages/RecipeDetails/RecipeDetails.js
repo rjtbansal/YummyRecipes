@@ -6,7 +6,8 @@ import backButton from '../../assets/keyboard_arrow_left.svg';
 export default class RecipeDetails extends React.Component {
 
     state = {
-        recipeDetailsData: {}
+        recipeDetailsData: {},
+        recipeInstructionsArr: [] //to split instructions string by new line when available
     }
 
     getRecipeDetails = id => {
@@ -15,6 +16,12 @@ export default class RecipeDetails extends React.Component {
                  this.setState({
                     recipeDetailsData: recipeDetailsRes.data
                  });
+                 return this.state.recipeDetailsData;
+             })
+             .then(res => {
+                 this.setState({  //doing split below to be able to get array of instructions
+                     recipeInstructionsArr: this.state.recipeDetailsData.instructions.split('\n')
+                 })
              })
              .catch(err => console.error(err));
     } 
@@ -42,16 +49,18 @@ export default class RecipeDetails extends React.Component {
                 <img className="recipe-details__image" src={ this.state.recipeDetailsData.image } />
                 <div className="recipe-details__ingredients-subdiv">
                     <h3> Ingredients </h3>
+                        <ul>
                         { this.state.recipeDetailsData.ingredients.map(ingredient => 
-                                <p> 
+                                <li> 
                                     { ingredient.name } - { ingredient.portionSize}
-                                </p>
+                                </li>
                         ) }
+                        </ul>
                 </div>
                  <h3>Instructions</h3>
-                <p>
-                    { this.state.recipeDetailsData.instructions }
-                </p>
+                <ul className="recipe-details__instructions">
+                    { this.state.recipeInstructionsArr.map(recipeInstruction => <li> {recipeInstruction} </li>)}
+                </ul>
             </div>
         );
     }

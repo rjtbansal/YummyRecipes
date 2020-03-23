@@ -17,5 +17,10 @@
         width: 20%;
     }
 
+    &__instructions{
+        //needed to maintain whitespacing 
+        white-space: pre-line;
+    }
+
     
 }
