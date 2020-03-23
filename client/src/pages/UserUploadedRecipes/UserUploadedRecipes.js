@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import Recipe from '../../components/Recipe/Recipe';
+import './UserUploadedRecipes.scss';
 
 export default class UserUploadedRecipes extends React.Component {
 
@@ -25,21 +26,14 @@ export default class UserUploadedRecipes extends React.Component {
     }
 
     render() {
-        console.log(this.state.userRecipesData)
-        return(
-            
-            <div>
-                <h2>
-                    Explore Our Users Uploaded Recipes
-                </h2>
-                <div>
+        return(       
+                <div className="uploaded-recipes">
                     {
                         this.state.userRecipesData.length 
                         ? this.state.userRecipesData.map(userRecipeData => <Recipe key= {userRecipeData._id} recipeData = {userRecipeData} />)
                         : <h3>No Recipes Uploaded Yet</h3>
                     }
                 </div>
-            </div>
         );
     }
 }

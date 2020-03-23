@@ -18,6 +18,15 @@
         height: 12.5rem;
     }
 
+    &__image-placeholder{
+        height: 12.5rem;
+        width: 12.5rem;
+        background-color: lightgray;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
     &__subdiv {
         display: flex;
         justify-content: space-between;

@@ -11,7 +11,15 @@ const Recipe = ({recipeData}) => {
                 <h4> { recipeData.cuisine }   </h4>
                 <h4> { recipeData.category ? recipeData.category : recipeData.addedBy}  </h4>
             </div>
-            <img className="recipe__image" src = { recipeData.image } alt= {`${recipeData.name}-image`} />
+            {
+                recipeData.image 
+                ?
+                <img className="recipe__image" src = { recipeData.image } alt= {`${recipeData.name}-image`} />
+                :
+                <div className="recipe__image-placeholder">
+                    <h3>Image Unavailable</h3>
+                </div>
+            }
         </Link>
     </div>
 }
