@@ -12,22 +12,17 @@ export default class UploadRecipes extends React.Component {
         this.state = {
             uploadRecipesFormData: {},
             selectedFile: null,
-            redirect : null
+            redirect : null,
         };
     }
    
     uploadRecipe = () => {
-        console.log(this.state.selectedFile);
-        const data = new FormData();
-        data.append('file', this.state.selectedFile);
-        
-        this.setState({
-            uploadRecipesFormData : {
-                ...this.state.uploadRecipesFormData,
-                data
-            }
-        })
-        axios.post(`http://localhost:3000/recipes`, this.state.uploadRecipesFormData)
+        const formData = new FormData();
+        formData.append('file', this.state.selectedFile, this.state.selectedFile.name);
+        for(const key in this.state.uploadRecipesFormData){
+            formData.append(key, this.state.uploadRecipesFormData[key]);
+        }
+        axios.post(`http://localhost:3000/recipes`, formData, {})
              .then(res =>  {
                  alert(res.data);
                  this.setState({

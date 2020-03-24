@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const Recipe = require('../models/recipe');
+const multer = require('multer');
+
 
 /*
 Endpoint: /recipes/random
@@ -61,33 +63,59 @@ router.get('/:id', (req, res) => {
 });
 
 
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'public/images')
+    },
+    filename: (req, file, cb) => {
+        let filetype = '';
+        if(file.mimetype === 'image/gif') {
+            filetype = 'gif';
+        }
+        if(file.mimetype === 'image/png') {
+            filetype = 'png';
+        }
+        if(file.mimetype === 'image/jpeg') {
+            filetype = 'jpg';
+        }
+        cb(null, 'image-' + Date.now() + '.' + filetype);
+
+    }
+});
+
+const upload = multer({ storage: storage }).single('file');
 
 /*
 Endpoint: /recipes
 Outcome: Add recipe 
 */ 
 router.post('/', (req, res) => {
-    if(req.body.name && req.body.ingredients && req.body.instructions){
-        const newRecipeData = new Recipe({
-            _id: req.body._id,
-            name: req.body.name,
-            ingredients: req.body.ingredients.split(','),
-            instructions: req.body.instructions,
-            cuisine: req.body.cuisine || '',
-            image: req.body.image || '',
-            addedBy: req.body.addedBy || ''
+    
+    upload(req,res, err => {
+        if(err instanceof multer.MulterError) {
+            return res.status(500).json(err);
+        }
+        else if(err) {
+            return res.status(500).json(err);
+        }
+        console.log(req.file);
+
+            const newRecipeData = new Recipe({
+                _id: req.body._id,
+                name: req.body.name,
+                ingredients: req.body.ingredients.split(','),
+                instructions: req.body.instructions,
+                cuisine: req.body.cuisine || '',
+                image: `http://localhost:3000/images/${req.file.filename}` || '',
+                addedBy: req.body.addedBy || ''
         });
-       
-        newRecipeData.save()
+
+          newRecipeData.save()
                      .then(result => {
                          res.status(201).send('Recipe added successfully!');
                      })
                      .catch(err => console.log(err));
-    }
-    else {
-        res.status(400).send('Data is malformed. Required fields are missing');
-    }
-    
+    });
 });
 
 
