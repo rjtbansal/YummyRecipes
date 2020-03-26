@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const recipesRoutes = require('./routes/recipes');
 const categoryRoutes = require('./routes/category');
 const cuisineRoutes = require('./routes/cuisine');
+const mongoUrl = require('./mongo-url.json');
 
 const app = express();
 
@@ -18,10 +19,12 @@ app.use('/cuisine', cuisineRoutes);
 
 
 //connecting to our cloud MongoDb
-const mongoCloudUrl = 'mongodb+srv://admin:adminadmin@yummyrecipescluster-0g9s7.mongodb.net/YummyRecipes?retryWrites=true&w=majority';
+const mongoCloudUrl = mongoUrl["mongodbUrl"];
+
+const port = process.env.PORT || 3000;
 //2nd arg options are required to remove deprecated warnings
 mongoose.connect(mongoCloudUrl, {useUnifiedTopology: true, useNewUrlParser: true})
         .then(res => {
-            app.listen(3000);
+            app.listen(port);
         })
         .catch(err => console.log(err) );
