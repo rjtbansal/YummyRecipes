@@ -1,6 +1,11 @@
 .uploaded-recipes {
     margin-top: 5rem;
+    margin-left: 4rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+
+    .recipe {
+        width: 25%;
+    }
 }
