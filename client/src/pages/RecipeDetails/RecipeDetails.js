@@ -1,7 +1,7 @@
 import React from 'react';
 import './RecipeDetails.scss';
 import axios from 'axios';
-import backButton from '../../assets/keyboard_arrow_left.svg';
+import BackButton from '../../components/BackButton/BackButton';
 
 export default class RecipeDetails extends React.Component {
 
@@ -41,7 +41,7 @@ export default class RecipeDetails extends React.Component {
         }
         return (
             <div className="recipe-details">
-                <img className="recipe-details__back-button" onClick={this.goBack} src={backButton} />
+                <BackButton goBack={this.goBack} />
                 <div className="recipe-details__title-image">
                     <h3 className="recipe-details__name"> { this.state.recipeDetailsData.name } </h3>
                     <div className="recipe-details__subdiv">
