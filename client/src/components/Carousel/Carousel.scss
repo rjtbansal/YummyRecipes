@@ -1,10 +1,30 @@
-//unfortunately still cant see arrows
-.mycarousel.slick-prev {
-    color: red !important;
-    background-color: red !important;
-    left: 50px !important;
+.mycarousel {
+    > .slick-prev {
+
+        &:before {
+            color: red;
+        }
+
+        &:hover:before{
+            color: black;
+        }
+
+        left: -50px;
+    }
+
+    > .slick-next {
+        &:before {
+            color: red;
+        }
+
+        &:hover:before{
+            color: black;
+        }
+
+        right: 100px;
+
+    }
 }
 
-.mycarousel.slick-next {
-    color: red;
-}
+
+

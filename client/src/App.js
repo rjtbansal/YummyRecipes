@@ -9,6 +9,7 @@ import CategoryDetails from './pages/CategoryDetails/CategoryDetails';
 import RecipeDetails from './pages/RecipeDetails/RecipeDetails';
 import CuisineDetails from './pages/CuisineDetails/CuisineDetails';
 import UserUploadedRecipes from './pages/UserUploadedRecipes/UserUploadedRecipes';
+import './styles/styles.scss';
 
 function App() {
   return (
