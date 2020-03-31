@@ -3,7 +3,6 @@
     margin-bottom: 2rem;
     font-family: sans-serif;
 
-
     &__link {
         text-decoration: none;
         color: black;
@@ -16,6 +15,11 @@
 
     &__image {
         height: 12.5rem;
+        border-radius: 5px;
+
+        &:hover {
+            border: 3px solid rgb(236, 78, 78);
+        }
     }
 
     &__image-placeholder{
