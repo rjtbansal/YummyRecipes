@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import Recipe from '../../components/Recipe/Recipe';
-import backArrow from '../../assets/keyboard_arrow_left.svg';
+import BackButton from '../../components/BackButton/BackButton';
 import './CuisineDetails.scss';
 
 export default class CuisineDetails extends React.Component {
@@ -29,7 +29,7 @@ export default class CuisineDetails extends React.Component {
         return(
            
             <div className="cuisine-details-div"> 
-                <img onClick={ this.goBack } src={backArrow} alt="back-arrow-img" />
+                <BackButton goBack={this.goBack} />
                 <div className="cuisine-details">
                 {
                    this.state.cuisineRecipesData.map(cuisineRecipeData => <Recipe key= {cuisineRecipeData._id} recipeData = {cuisineRecipeData} />)
