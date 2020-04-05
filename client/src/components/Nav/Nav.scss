@@ -3,13 +3,55 @@
 .nav {
 
     width: 70%;
+
+    &__menu {
+        &--closed {
+
+            @include tablet {
+                display: none;
+            }
+
+            @include desktop {
+                display: none;
+            }
+        }
+    }
     
     &__list {
         display: flex;
         list-style: none;
         justify-content: space-evenly;
         flex-wrap: wrap;
+
+        @include mobile {
+            display: none;
+        }
+
+        @include tablet {
+            display: flex;
+        }
+
+        @include desktop {
+            display: flex;
+        }
+
     }
+
+    &__mobile {
+        display: flex;
+        list-style: none;
+        flex-direction: column;
+
+        @include tablet {
+            display: none;
+        }
+
+        @include desktop {
+            display: none;
+        }
+    }
+
+
 
     &__link {
         text-decoration: none;
@@ -27,7 +69,12 @@
         }
     }
 
+    // @include mobile {
+    //     width: unset;
+    // }
+
     @include tablet {
+        display: unset;
         width: 100%;
     }
 

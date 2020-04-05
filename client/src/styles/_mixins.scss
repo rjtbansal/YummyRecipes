@@ -19,7 +19,7 @@
 }
 
 @mixin mobile {
-    @media screen and (min-width: $mobile-width-s) and (max-width: $mobile-width-l){
+    @media screen and (min-width: $mobile-width-s) and (max-width: $tablet-width){
         @content;
     }
 }

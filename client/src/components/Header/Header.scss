@@ -4,7 +4,7 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     background-color: #FBEA1F;
     border-radius: 0.5rem;
     //making navbar as fixed
@@ -21,8 +21,16 @@
         font-weight: bold;
     }
 
+    @include mobile {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        // flex-direction: row-reverse;
+        // justify-content: space-evenly;
+    }
+
     @include tablet {
         padding-top: 1rem;
+        padding-bottom: 1rem;
         flex-direction: column;
     }
 
