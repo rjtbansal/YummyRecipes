@@ -1,3 +1,5 @@
+@import '../../styles/mixins';
+
 .mycarousel {
     > .slick-prev {
 
@@ -10,6 +12,8 @@
         }
 
         left: -50px;
+
+       
     }
 
     > .slick-next {
@@ -21,7 +25,26 @@
             color: black;
         }
 
-        right: 100px;
+
+        @include mobile-s {
+            right: 20px;   
+        }
+
+        @include mobile-m {
+            right: 60px;
+        }
+
+        @include mobile-l {
+            right: 100px ;
+        }
+
+        @include laptop {
+            right: 10px;
+        }
+
+        @include desktop {
+            right: 120px;
+        }
 
     }
 }
