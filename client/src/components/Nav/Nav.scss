@@ -1,3 +1,5 @@
+@import '../../styles/mixins';
+
 .nav {
 
     width: 70%;
@@ -23,6 +25,10 @@
         &--active {
             border-bottom: 2px solid rgb(87, 9, 139);
         }
+    }
+
+    @include tablet {
+        width: 100%;
     }
 
    
