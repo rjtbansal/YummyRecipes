@@ -69,9 +69,9 @@
         }
     }
 
-    // @include mobile {
-    //     width: unset;
-    // }
+    @include mobile {
+        width: unset;
+    }
 
     @include tablet {
         display: unset;

@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 
 const Header = () => {
 
-    return <section className="header">
+    return <section className="header">    
         <Link to="/" className ="header__logo">Yummy Recipes</Link>
         <Nav />
     </section>
