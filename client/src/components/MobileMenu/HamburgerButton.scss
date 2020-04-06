@@ -1,0 +1,16 @@
+@import '../../styles/mixins';
+
+.hamburger{
+
+  @include tablet {
+    display: none;
+  }
+
+  @include laptop {
+    display:  none;
+  }
+
+  @include desktop {
+    display: none;
+  }
+}
