@@ -1,3 +1,5 @@
+@import '../../styles/mixins';
+
 .category-details{
     display: flex;
     flex-wrap: wrap;
@@ -7,9 +9,25 @@
     &-div {
         margin-top: 5rem;
     }
-    
-}
 
-.category-details .recipe {
-    width: 25%;
+    .recipe {
+        width: 25%;
+
+        @include tablet {
+            width: 30%;
+        }
+    }
+
+    @include mobile {
+        flex-direction: column;
+        
+    }
+
+    @include tablet {
+        flex-direction: row;
+        margin-left: 2rem;
+        margin-top: 10rem;
+        align-items: flex-end;
+    }
+    
 }
