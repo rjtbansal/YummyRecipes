@@ -1,6 +1,7 @@
 import React from 'react';
 import './MobileMenu.scss';
 import {NavLink} from 'react-router-dom';
+import BackButton from '../BackButton/BackButton';
 
 const MobileMenu = props => {
 
@@ -11,6 +12,8 @@ const MobileMenu = props => {
 
   return (
     <nav className={ menuClasses }>
+      {/* backbutton should also make the menu go away */}
+      <BackButton className = "mobile-nav__backbutton" />
       <ul className="mobile-nav__list">
         <li className = "mobile-nav__item">
           <NavLink exact activeClassName="mobile-nav__link--active" className="mobile-nav__link"  to="/">Home</NavLink>

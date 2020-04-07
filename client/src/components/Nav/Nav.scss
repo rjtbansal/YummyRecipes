@@ -3,23 +3,6 @@
 .nav {
 
     width: 70%;
-
-    &__menu {
-        // &--closed {
-
-        //     @include tablet {
-        //         display: none;
-        //     }
-
-        //     @include laptop {
-        //         display: none;
-        //     }
-
-        //     @include desktop {
-        //         display: none;
-        //     }
-        // }
-    }
     
     &__list {
         display: flex;
