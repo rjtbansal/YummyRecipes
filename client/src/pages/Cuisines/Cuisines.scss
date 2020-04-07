@@ -1,6 +1,21 @@
+@import '../../styles/mixins';
+
 .cuisines {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
     margin-top: 6rem;
+
+    @include mobile {
+        flex-direction: column;
+        align-items: center;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    @include tablet {
+        flex-direction: row;   
+        margin-top: 10rem;
+    }
+
 }

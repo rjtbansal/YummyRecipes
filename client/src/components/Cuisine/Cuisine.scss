@@ -1,3 +1,5 @@
+@import '../../styles/mixins';
+
 .cuisine {
     height: 10rem;
     background-color: lightgray;
@@ -13,5 +15,13 @@
     
     &:hover {
         border: 3px solid  #ec4e4e;
+    }
+
+    @include mobile {
+        width: 100%;
+    }
+
+    @include tablet {
+        width: 30%;
     }
 }
