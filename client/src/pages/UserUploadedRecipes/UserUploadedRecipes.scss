@@ -9,6 +9,10 @@
 
     .recipe {
         width: 25%;
+
+        @include tablet {
+            width: 30%;
+        }
     }
 
     @include mobile {
@@ -17,6 +21,8 @@
 
     @include tablet {
         flex-direction: row;
+        align-items: flex-end;
+        margin-top: 10rem;
     }
 
 }
