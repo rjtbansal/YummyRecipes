@@ -28,7 +28,7 @@ class Header extends Component {
             backdrop = <Backdrop clickBackdrop = { this.backdropClickHandler } />;
         }
         return <section className="header">    
-            <MobileMenu showMobileMenu = { this.state.mobileMenuOpen } />
+            <MobileMenu hideMobileMenu = { this.backdropClickHandler } showMobileMenu = { this.state.mobileMenuOpen } />
             <Link to="/" className ="header__logo">Yummy Recipes</Link>
             <Nav mobileMenuClickHandler = { this.menuClickHandler } />
             { backdrop }
