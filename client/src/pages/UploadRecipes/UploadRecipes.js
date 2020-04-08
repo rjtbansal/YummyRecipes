@@ -66,7 +66,7 @@ export default class UploadRecipes extends React.Component {
             return <Redirect to= {this.state.redirect} />
         }
         return <div className="upload-recipes">
-            <h2>
+            <h2 className="upload-recipes__title">
                 Share Your Culinary Art
             </h2>
             <form method="post" onSubmit = {
@@ -98,8 +98,10 @@ export default class UploadRecipes extends React.Component {
                     <label className="upload-recipes__label" htmlFor="image">Choose your recipe image:</label>
                     <input type="file" name="file" onChange= { e => {this.onChangeImageHandler(e)} } />
                 </div>
-                <button type="submit" className="upload-recipes--upload upload-recipes__button">UPLOAD</button>
-                <button type="reset" className="upload-recipes--reset upload-recipes__button">RESET</button>
+                <div className="upload-recipes__buttons">
+                    <button type="submit" className="upload-recipes--upload upload-recipes__button">UPLOAD</button>
+                    <button type="reset" className="upload-recipes--reset upload-recipes__button">RESET</button>
+                </div>
             </form>
         </div>
     }
