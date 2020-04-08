@@ -1,3 +1,5 @@
+@import '../../styles/mixins';
+
 .recipe-details {
     
     margin-top: 4rem;
@@ -69,7 +71,9 @@
         margin-right: 1.5rem;
     }
 
-    
+    @include tablet {
+        margin-top: 10rem;
+    }
 
     
 }

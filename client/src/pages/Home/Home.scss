@@ -1,5 +1,11 @@
+@import '../../styles/mixins';
+
 .home {
     margin-left: 4rem;
     margin-top: 5rem;
-    color: darkgoldenrod
+    color: darkgoldenrod;
+
+    @include tablet {
+        margin-top: 10rem;
+    }
 }
