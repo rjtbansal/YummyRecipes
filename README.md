@@ -1,29 +1,65 @@
-# YummyRecipes
-My capstone project
+# Yummy Recipes
+**_Contents:_**
+- [About](#about)
+- [Author](#author)
+- [Features](#features)
+- [Screenshots](#screenshots)
 
-YummyRecipes is an ongoing project. Its a web app to showcase homemade recipes. Cooking at home is something I enjoy and I decided to utilize
-my technical skills to build it.
+# About
 
-Currently it supports following features:
-1. View Recipes by daily specials, categories, cuisines
-2. View recipes uploaded by users
-3. Upload recipes
+Yummy Recipes is a modern web app that allows users to view and upload home made recipes
 
-Features in the pipeline:
-1. User Authentication : With username, password / facebook auth / google auth
-2. Users will be able to view, add, update and delete their own recipes 
-3. Users can like and comment on each other's recipes
-4. Based on likes, app will showcase most liked recipes
+**Technology Stack**
+- *Front End*: React, SASS
+- *Back End*: NodeJS, Express, MongoDB on the cloud, mealdb api
 
-Tech Stack
+# Author
+[Rajat Bansal](https://github.com/rjtbansal)
 
-Front End:
-- React with JSX
-- SASS
-- React-Slick for Caraousel
+# Features
+- Show top 10 randomized recipes
+- Show recipes by categories, cuisines, Guests
+- Guest user can upload recipes
 
-Back End:
-- NodeJs
-- ExpressJs
-- MongoDB
+# Screenshots
+## Home Page
+![Home Page](./screenshots/home.png)
+
+## Categories Page
+![Categories](./screenshots/categories.png)
+
+## Cuisines Page
+![Cuisines Page](./screenshots/cuisines.png)
+
+## Recipe Details 1
+![Recipe Details 1](./screenshots/recipe-details-1.png)
+
+## Recipe Details 2
+![Recipe Details 2](./screenshots/recipe-details-2.png)
+
+## Recipes By Categories
+![Recipe Categories](./screenshots/recipe-by-categories.png)
+
+## Recipes By Cuisines
+![Recipe Cuisines](./screenshots/recipe-by-cuisine.png)
+
+## Upload Recipes
+![Upload Recipes](./screenshots/upload-recipe-form.png)
+
+## Tablet View
+![Tablet View](./screenshots/responsive-tablet-view.PNG)
+
+## Mobile View
+![Mobile View](./screenshots/mobile-view.PNG)
+
+## Mobile Hamburger Menu
+![Mobile View](./screenshots/mobile-hamburger-menu.PNG)
+
+
+
+
+
+
+
+
 
