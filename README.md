@@ -5,6 +5,8 @@
 - [Features](#features)
 - [Screenshots](#screenshots)
 
+Video Demo Link: https://www.youtube.com/watch?v=hM_twsiyevE&t=3s
+
 # About
 
 Yummy Recipes is a modern web app that allows users to view and upload home made recipes
