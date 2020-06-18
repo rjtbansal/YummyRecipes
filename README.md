@@ -38,10 +38,10 @@ Yummy Recipes is a modern web app that allows users to view and upload home made
 ![Recipe Details 2](./screenshots/recipe-details-2.png)
 
 ## Recipes By Categories
-![Recipe Categories](./screenshots/recipe-by-categories.png)
+![Recipe Categories](./screenshots/recipes-by-categories.png)
 
 ## Recipes By Cuisines
-![Recipe Cuisines](./screenshots/recipe-by-cuisine.png)
+![Recipe Cuisines](./screenshots/recipes-by-cuisine.png)
 
 ## Upload Recipes
 ![Upload Recipes](./screenshots/upload-recipe-form.png)
